@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Image from "../assets/earpo1.png";
-import Image2 from "../assets/earpods2.png";
+import Image from "/public/images/earpo1.png";
+import Image2 from "/public/images/earpods2.png";
 import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";

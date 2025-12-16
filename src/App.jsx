@@ -10,6 +10,8 @@ import Accessories from "./Pages/Accessories";
 import Computer from "./Pages/Computer";
 import Home from "./Components/Home";
 import ProductsDetails from "./Pages/ProductDetails";
+import Cart from "./Pages/MobileCart";
+import Contact from "./Pages/Contact";
 
 
 export default function App() {
@@ -28,6 +30,7 @@ export default function App() {
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/computer" element={<Computer />} />
         <Route path="/product/:id" element={<ProductsDetails/>} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,13 +1,13 @@
-import Laptop from "../assets/laptop.jpg";
+import Laptop from "/public/images/laptop.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Mobiles from "../assets/mobiles.jpg";
-import Tablet from "../assets/tablet1.jpg";
-import watch from "../assets/watch.jpg";
-import Logo from "../assets/logos.png";
-import Camera from "../assets/camera.jpg";
-import Headphones from "../assets/headphones.jpg";
-import { FaWhatsapp } from "react-icons/fa6";
+import Mobiles from "/public/images/mobiles.jpg";
+import Tablet from "/public/images/tablet1.jpg";
+import watch from "/public/images/watch.jpg";
+import Logo from "/public/images/logos.png";
+import Camera from "/public/images/camera.jpg";
+import Headphones from "/public/images/headphones.jpg";
+
 
 
 import { useEffect, useState } from "react";

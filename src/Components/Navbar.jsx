@@ -2,14 +2,14 @@ import { FaHeart, FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import CartDrawer from "./CartDrawer";
-import { useCart } from "../Context/CartContext";
+
 
 export default function Navbar() {
     const [openMenu, setOpenMenu] = useState(false);
     const [navbarVisible, setNavbarVisible] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const navigate = useNavigate();
-    const { Cart, removeFromCart, updateQuanitity, totalPrice } = useCart();
+    
 
     const openCart = () => {
         if (window.innerWidth < 768) {
@@ -49,7 +49,7 @@ export default function Navbar() {
                 <Link to="/computer" className="hover:underline cursor-pointer">Computer & Tablets</Link>
                 <Link to="/accessories" className="hover:underline cursor-pointer">Accessories</Link>
                 <Link to="/sale" className="hover:underline cursor-pointer">Sale</Link>
-                <Link to="/#" className="hover:underline cursor-pointer">Contact</Link>
+                <Link to="/contact" className="hover:underline cursor-pointer">Contact</Link>
 
             </ul>
 

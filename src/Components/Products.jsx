@@ -1,4 +1,4 @@
-import Image from '../assets/speaker.png'
+import Image from '/public/images/speaker.png'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import Aos from 'aos';

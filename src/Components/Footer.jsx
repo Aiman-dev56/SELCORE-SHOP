@@ -1,4 +1,5 @@
-import { FaFacebook, FaInstagramSquare, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa"
+import { FaFacebook, FaInstagramSquare, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return(
@@ -20,12 +21,19 @@ export default function Footer() {
                     </div>
                     <div className="flex  flex-col ">
                       <ul className="text-[18px] font-[Time-New-Romans] w-40">
-                        <li className="mb-1">New In</li>
+                         <Link to="/allproducts" className="text-gray-400 hover:text-white">All Products</Link>
+                    <Link to="/accessories" className="text-gray-400 hover:text-white">Accessories</Link>
+                    <Link to="/computer" className="text-gray-400 hover:text-white">Computers</Link>
+                    <Link to="/cellphones" className="text-gray-400 hover:text-white">Cell Phones</Link>
+                    <Link to="/bestsellers" className="text-gray-400 hover:text-white">Best Sellers</Link>
+                    <Link to="/newin" className="text-gray-400 hover:text-white">New In</Link>
+                    <Link to="/sale" className="text-gray-400 hover:text-white">Sale</Link>
+                        {/* <li className="mb-1">New In</li>
                         <li className="mb-1">Cell Phones</li>
                         <li className="mb-1">Computer & Tablets</li>
                         <li className="mb-1">Accessories</li>
                         <li className="mb-1">Sale</li>
-                        <li className="mb-1">Contact</li>
+                        <li className="mb-1">Contact</li> */}
                       </ul>
                         </div>
 
