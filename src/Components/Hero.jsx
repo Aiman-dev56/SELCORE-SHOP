@@ -4,6 +4,7 @@ import Image2 from "/public/images/earpods2.png";
 import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const [isChecked, setIsChecked] = useState(false);
@@ -47,9 +48,11 @@ export default function Hero() {
           
           {/* Main Title */}
           <div className="text-center md:text-left">
+            
             <h1 className="text-white text-[80px] sm:text-[120px] md:text-[200px] leading-none">
               SELCORE
-            </h1>
+            </h1> 
+            
             <div className="flex flex-col md:flex-row justify-between md:items-center mt-4 md:mt-6 gap-4">
               <p className="text-white text-[16px] sm:text-[18px] md:text-[20px] max-w-100 md:max-w-[60%]">
                 Your Ultimate Destination for the Best Value Electronics and Gadgets

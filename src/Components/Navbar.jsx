@@ -38,9 +38,13 @@ export default function Navbar() {
             ${navbarVisible ? "bg-purple-500/80 backdrop-blur-md" : "bg-transparent"}`}
         >
             {/* Logo */}
-            <div className="font-extrabold text-white text-2xl">
+            <Link to="/">
+             <div className="font-extrabold text-white text-2xl">
                 SELCORE
             </div>
+            </Link>
+           
+
 
             {/* Desktop Links */}
             <ul className="gap-5 text-lg text-white font-sans hidden md:flex">

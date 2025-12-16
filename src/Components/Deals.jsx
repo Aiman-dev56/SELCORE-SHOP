@@ -7,6 +7,7 @@ import watch from "/public/images/watch.jpg";
 import Logo from "/public/images/logos.png";
 import Camera from "/public/images/camera.jpg";
 import Headphones from "/public/images/headphones.jpg";
+import { Link } from "react-router-dom";
 
 
 
@@ -63,7 +64,10 @@ export default function Deals() {
                 <div className="absolute flex flex-col w-60 md:w-80 left-10 top-10 md:p-4 items-start text-white drop-shadow-lg">
                     <h1 className="font-bold text-[15px] md:text-[40px] w-80 p-1">Hottest Deals</h1>
                     <p className="text-[10px] md:text-[20px] p-1">Save up to $150 on selected laptop & tablet brands</p>
+                    <Link to="/computer">
                     <button className="bg-white text-black text-[8px] px-10 py-1  rounded-sm mt-8 md:mt-50 cursor-pointer">View All</button>
+                    </Link>
+                    
 
                 </div>
 
@@ -90,7 +94,10 @@ export default function Deals() {
 
                             </div>
                         </div>
-                        <p className=" mt-1 p-1 underline text-2xl cursor-pointer">Computer&Tablets</p>
+                        <Link to="/computer">
+                         <p className=" mt-1 p-1 underline text-2xl cursor-pointer">Computer&Tablets</p>
+                        </Link>
+                       
                     </div>
                     <div className="flex flex-col">
 
@@ -101,7 +108,10 @@ export default function Deals() {
 
                             </div>
                         </div>
-                        <p className="mt-1 p-1 text-2xl  underline cursor-pointer">Cell Phones</p>
+                        <Link to="cellphones">
+                         <p className="mt-1 p-1 text-2xl  underline cursor-pointer">Cell Phones</p>
+                        </Link>
+                       
                     </div>
                     <div className="flex flex-col">
                         <div className="w-auto h-auto rounded-md overflow-hidden">
@@ -112,7 +122,10 @@ export default function Deals() {
                             </div>
                         </div>
                         
+                        <Link to="/accessories">
                         <p className="mt-1 p-1 underline text-2xl  cursor-pointer">Accessories</p> 
+                        </Link>
+                        
                     </div>
 
                 </div>
@@ -135,7 +148,10 @@ export default function Deals() {
             <section className="m-5  justify-between mt-10">
                <div className="flex flex-wrap ">
                     <h1 className="text-white text-4xl md:text-4xl ">New Arrivals</h1>
-                    <button className="bg-purple-500 px-10 text-[9px] md:text-[13px] rounded-sm  md:ml-200 ">ALL PRODUCTS</button>
+                    <Link to="/newin">
+                    <button className="bg-purple-500 px-10 py-3 text-[9px] md:text-[13px] cursor-pointer rounded-sm  md:ml-200 ">ALL PRODUCTS</button>
+                    </Link>
+                    
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-10">
                     <div className="flex flex-col">
