@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 31,
     "name": "Tonex Headphones",
     "price": 100.00,
     "image": "/images/headphones.jpg",
@@ -12,7 +12,7 @@
   
   },
   {
-    "id": 2,
+    "id": 32,
     "name": "Instant Camera",
     "price": 100.00,
     "image": "/images/camera.jpg",
@@ -24,7 +24,7 @@
   
   },
   {
-    "id": 3,
+    "id": 33,
     "name": "Portable Speaker",
     "price": 50.00,
     "image": "/images/speaker2.png",
@@ -36,7 +36,7 @@
   
   },
   {
-    "id": 4,
+    "id": 34,
     "name": "Quantum 4 LR",
     "price": 450.00,
     "image": "/images/mob4.png",
@@ -48,7 +48,7 @@
   
   },
   {
-    "id": 5,
+    "id": 35,
     "name": "Quantum 5 Pro",
     "price": 500.00,
     "image": "/images/mob4.png",
@@ -60,7 +60,7 @@
   
   },
   {
-    "id": 6,
+    "id": 36,
     "name": "Quantum 6 Pro",
     "price": 500.00,
     "image": "/images/mob3.png",
@@ -72,7 +72,7 @@
 
   },
   {
-    "id": 7,
+    "id": 37,
     "name": "Hyper 14",
     "price": 520.00,
     "image": "/images/mob2.png",
@@ -84,7 +84,7 @@
   
   },
   {
-    "id": 8,
+    "id": 38,
     "name": "Hyper 15",
     "price": 700.00,
     "image": "/images/mob1.png",
@@ -95,7 +95,7 @@
      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
   },
   {
-    "id": 9,
+    "id": 39,
     "name": "Laptop",
     "price": 320.00,
     "image": "/images/laptop2.png",
@@ -107,7 +107,7 @@
   
   },
   {
-    "id": 10,
+    "id": 40,
     "name": "Laptop",
     "price": 450.00,
     "image": "/images/laptop1.png",
@@ -118,10 +118,10 @@
       "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
   },
   {
-    "id": 11,
+    "id": 41,
     "name": "Laptop",
     "price": 280.00,
-    "image": "src/assets/tablet1.png",
+    "image": "/images/tablet1.png",
     "category": ["allproducts", "computers", "sale"],
     "isBestSeller": false,
     "newin": false,
@@ -130,10 +130,10 @@
   
   },
   {
-    "id": 12,
+    "id": 42,
     "name": "Desktop Monitor",
     "price": 450.00,
-    "image": "src/assets/pc1.png",
+    "image": "/images/pc1.png",
     "category": ["allproducts" ,"computers"],
     "isBestSeller": false,
     "newin": false,
@@ -142,10 +142,10 @@
   
   },
   {
-    "id": 13,
+    "id": 43,
     "name": "Wireless Mouse",
     "price": 50.00,
-    "image": "src/assets/mouse.png",
+    "image": "/images/mouse.png",
     "category": ["allproducts", "accessories", "bestsellers"],
     "isBestSeller": true,
     "newin": false,
@@ -154,10 +154,10 @@
   
   },
   {
-    "id": 14,
+    "id": 44,
     "name": "Fitness Tracker",
     "price": 75.00,
-    "image": "src/assets/watch2.png",
+    "image": "/images/watch2.png",
     "category": ["allproducts" ,"accessories",  "bestsellers"],
     "isBestSeller": true,
     "newin": false,
@@ -166,10 +166,10 @@
   
   },
   {
-    "id": 15,
+    "id": 45,
     "name": "Wireless earbuds",
     "price": 100.00,
-    "image": "src/assets/earpods1.png",
+    "image": "/images/earpods1.png",
     "category": ["allproducts","accessories", "bestsellers"],
     "isBestSeller": true,
     "newin": false,
@@ -178,10 +178,10 @@
 
   },
   {
-    "id": 16,
+    "id": 46,
     "name": "Smart Home Camera",
     "price": 75.00,
-    "image": "src/assets/camera2.png",
+    "image": "/images/camera2.png",
     "category": ["allproducts","accessories",  "bestsellers", "sale"],
     "isBestSeller": true,
     "newin": false,

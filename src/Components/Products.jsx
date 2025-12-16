@@ -3,9 +3,14 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { Link } from 'react-router-dom';
+import ProductData from "../data.json";
+
+
 
 export default function Products() {
-    const [products, setIsProducts] = useState([]);
+    const [apiProducts, setApiProducts] = useState([]);
+    const [combinedProducts, setCombinedProducts] = useState([]);
     const [visible, setVisible] = useState(4);
     const [showAll, setShowAll] = useState(false);
 
@@ -17,22 +22,24 @@ export default function Products() {
     }, [])
 
     useEffect(() => {
-        axios
-            .get("https://dummyjson.com/products")
-            .then((res) => {
-                setIsProducts(res.data.products);
-
-            })
-            .catch((error) => {
-                alert("API Error:" + error);
-            })
+        axios.get("https://dummyjson.com/products")
+            .then(res => setApiProducts(res.data.products))
+            .catch(err => console.error("API Error:", err));
     }, []);
+
+    // Merge API products and local JSON products
+    useEffect(() => {
+        const merged = [...apiProducts, ...ProductData];
+        setCombinedProducts(merged);
+    }, [apiProducts]);
+
+
     const handleToggle = () => {
         if (showAll) {
             setVisible(4);
             setShowAll(false);
         } else {
-            setVisible(products.length)
+            setVisible(combinedProducts.length);
             setShowAll(true);
         }
     };
@@ -86,35 +93,42 @@ export default function Products() {
                     <button className='bg-purple-400 px-20 md:mt-0 mt-2 rounded-lg text-sm cursor-pointer' onClick={handleToggle}>{showAll ? "Hide" : "View All"}</button>
 
                 </div>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-10 gap-2 p-5'>
-                    {
-                        products.slice(0, visible).map((item) => (
-                            <div key={item.id}
-                                className=" p-1 rounded-lg  flex flex-col  "
-                            >
-                                <img
-                                    src={item.thumbnail}
-                                    alt={item.title}
-                                    className=' h-60 w-60 bg-gray-400 rounded-md  duration-300 
-                hover:scale-105 hover:shadow-xl '
-                                />
-                                <p className='mt-5 text-[20px] pl-2 text-white '>{item.title}</p>
-                                <p className='mt-1 text-[18px] pl-2 text-white '>${item.price}</p>
-                            </div>
-                        ))
-                    }
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-5">
+                    {combinedProducts.slice(0, visible).map(product => (
+                        <Link key={product.id} to={`/product/${product.id}`}>
+                            <div className="p-2 rounded-lg flex flex-col cursor-pointer transition">
+                                <div className="w-auto h-60 bg-gray-300 rounded-md overflow-hidden">
+                                    <div className="w-full h-full overflow-hidden">
+                                        <img
+                                            src={product.thumbnail || product.image || product.images?.[0]}
+                                            alt={product.title || product.name}
+                                            className="w-full h-full object-cover  transition-transform duration-500 
+                    hover:scale-110"
 
+                                        />
+
+
+                                    </div>
+                                </div>
+
+
+                                <p className="mt-2 text-[18px]">{product.title || product.name}</p>
+                                <p className="text-[15px]">${product.price}</p>
+                            </div>
+                        </Link>
+                    ))}
 
                 </div>
 
-                <div className='m-10 text-white font-bold' data-aos ="fade-up" data-aos-duration="5000">
+
+                <div className='m-10  font-bold' data-aos="fade-up" data-aos-duration="5000">
                     <h1 className='text-6xl'>Why Us</h1>
-                    </div>
+                </div>
                 <div className='m-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-3' data-aos="fade-up" data-aos-duration="6000">
-                   
+
                     <div className='flex flex-col'>
                         <hr className='w-full border-white' />
-                        <div className='flex p-2 mt-2 text-white'>
+                        <div className='flex p-2 mt-2 '>
                             <h4 className='text-[20px] md:text-[30px] font-semibold'>
                                 Free shipping on
                                 orders over $50</h4>
