@@ -1,0 +1,10 @@
+body {
+    background: linear-gradient(135deg, #6b6388 0%, #280d3f 10%, #21053a 40%, #1f054e, #746493);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* optional, if you want a smooth parallax-like effect */
+    
+    min-height: 100vh;
+    color: white;
+    font-family: monospace;
+}

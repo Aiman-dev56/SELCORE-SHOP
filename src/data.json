@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "name": "Tonex Headphones",
+    "price": 100.00,
+    "image": "/images/headphones.jpg",
+    "category": ["allproducts", "accessories", "newin"],
+    "isBestSeller": false,
+    "newin": true,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 2,
+    "name": "Instant Camera",
+    "price": 100.00,
+    "image": "/images/camera.jpg",
+    "category": ["allproducts", "accessories", "newin","bestsellers"],
+    "isBestSeller": true,
+    "newin": true,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 3,
+    "name": "Portable Speaker",
+    "price": 50.00,
+    "image": "/images/speaker2.png",
+    "category": ["allproducts", "accessories", "sale"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 4,
+    "name": "Quantum 4 LR",
+    "price": 450.00,
+    "image": "/images/mob4.png",
+    "category": ["allproducts", "cellPhones"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 5,
+    "name": "Quantum 5 Pro",
+    "price": 500.00,
+    "image": "/images/mob4.png",
+    "category": ["allproducts", "cellPhones"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 6,
+    "name": "Quantum 6 Pro",
+    "price": 500.00,
+    "image": "/images/mob3.png",
+    "category": ["allproducts", "cellPhones"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+
+  },
+  {
+    "id": 7,
+    "name": "Hyper 14",
+    "price": 520.00,
+    "image": "/images/mob2.png",
+    "category": ["allproducts", "cellPhones", "sale"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 8,
+    "name": "Hyper 15",
+    "price": 700.00,
+    "image": "/images/mob1.png",
+    "category": ["allproducts",  "cellPhones"],
+    "isBestSeller": false,
+    "newin": false,
+    "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+     "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  },
+  {
+    "id": 9,
+    "name": "Laptop",
+    "price": 320.00,
+    "image": "/images/laptop2.png",
+    "category": ["allproducts", "computers" , "sale"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 10,
+    "name": "Laptop",
+    "price": 450.00,
+    "image": "/images/laptop1.png",
+    "category": ["allproducts", "computers"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  },
+  {
+    "id": 11,
+    "name": "Laptop",
+    "price": 280.00,
+    "image": "src/assets/tablet1.png",
+    "category": ["allproducts", "computers", "sale"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 12,
+    "name": "Desktop Monitor",
+    "price": 450.00,
+    "image": "src/assets/pc1.png",
+    "category": ["allproducts" ,"computers"],
+    "isBestSeller": false,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 13,
+    "name": "Wireless Mouse",
+    "price": 50.00,
+    "image": "src/assets/mouse.png",
+    "category": ["allproducts", "accessories", "bestsellers"],
+    "isBestSeller": true,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 14,
+    "name": "Fitness Tracker",
+    "price": 75.00,
+    "image": "src/assets/watch2.png",
+    "category": ["allproducts" ,"accessories",  "bestsellers"],
+    "isBestSeller": true,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  },
+  {
+    "id": 15,
+    "name": "Wireless earbuds",
+    "price": 100.00,
+    "image": "src/assets/earpods1.png",
+    "category": ["allproducts","accessories", "bestsellers"],
+    "isBestSeller": true,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+     "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+
+  },
+  {
+    "id": 16,
+    "name": "Smart Home Camera",
+    "price": 75.00,
+    "image": "src/assets/camera2.png",
+    "category": ["allproducts","accessories",  "bestsellers", "sale"],
+    "isBestSeller": true,
+    "newin": false,
+     "description" : "I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.",
+      "info" :"I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item."
+  
+  }
+]
