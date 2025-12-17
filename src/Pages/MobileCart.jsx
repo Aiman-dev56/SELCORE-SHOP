@@ -9,7 +9,7 @@ export default function Cart(){
     if(cart.length === 0){
         
         return<div className="mt-40 text-center">
-            <h1>Crat is Empty</h1>
+            <h1>Cart is Empty</h1>
         </div>
     }
 

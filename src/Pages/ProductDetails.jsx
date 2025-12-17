@@ -146,7 +146,7 @@ export default function ProductDetail() {
       <img
         src={product.thumbnail || product.image || product.images?.[0]}
         alt={product.title || product.name}
-        className="w-200 h-130 object-cover bg-gray-300 rounded-md"
+        className="w-200 h-100 object-cover bg-gray-300 rounded-md"
       />
       <div>
         <h1 className="text-2xl font-semibold">{product.title || product.name}</h1>
