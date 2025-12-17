@@ -9,7 +9,7 @@ export default function Navbar() {
     const [navbarVisible, setNavbarVisible] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const navigate = useNavigate();
-    
+
 
     const openCart = () => {
         if (window.innerWidth < 768) {
@@ -39,11 +39,11 @@ export default function Navbar() {
         >
             {/* Logo */}
             <Link to="/">
-             <div className="font-extrabold text-white text-2xl">
-                SELCORE
-            </div>
+                <div className="font-extrabold text-white text-2xl">
+                    SELCORE
+                </div>
             </Link>
-           
+
 
 
             {/* Desktop Links */}
@@ -65,20 +65,6 @@ export default function Navbar() {
 
                 {/* Cart Drawer for Desktop */}
                 <CartDrawer isOpen={drawerOpen} isClose={() => setDrawerOpen(false)} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
@@ -102,15 +88,13 @@ export default function Navbar() {
                     onClick={() => setOpenMenu(false)}
                 />
 
-                <ul className="text-center space-y-6 text-2xl font-semibold">
-                    <Link to="/newin">New In</Link>
-
-
-                    <li className="hover:text-purple-400 cursor-pointer">Cell Phones</li>
-                    <li className="hover:text-purple-400 cursor-pointer">Computer & Tablets</li>
-                    <li className="hover:text-purple-400 cursor-pointer">Accessories</li>
-                    <li className="hover:text-purple-400 cursor-pointer">Sale</li>
-                    <li className="hover:text-purple-400 cursor-pointer">Contact</li>
+                <ul className="text-center flex flex-col space-y-6 text-2xl font-semibold">
+                    <Link to="/newin" className="hover:underline cursor-pointer">New In</Link>
+                <Link to="/cellphones" className="hover:underline cursor-pointer">Cell Phones</Link>
+                <Link to="/computer" className="hover:underline cursor-pointer">Computer & Tablets</Link>
+                <Link to="/accessories" className="hover:underline cursor-pointer">Accessories</Link>
+                <Link to="/sale" className="hover:underline cursor-pointer">Sale</Link>
+                <Link to="/contact" className="hover:underline cursor-pointer">Contact</Link>
                 </ul>
             </div>
         </div>

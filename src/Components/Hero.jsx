@@ -4,7 +4,7 @@ import Image2 from "/public/images/earpods2.png";
 import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { Link } from "react-router-dom";
+
 
 export default function Hero() {
   const [isChecked, setIsChecked] = useState(false);
@@ -23,12 +23,12 @@ export default function Hero() {
   return (
     <div className="relative w-full overflow-hidden">
       {/* Hero Section */}
-      <div className="relative h-[150vh] md:h-[100vh] w-full grid grid-cols-1 md:grid-cols-1 items-center px-4">
+      <div className="relative h-[150vh] md:h-[100vh] w-full grid grid-cols-1 md:grid-cols-1 items-center px-2">
         
         {/* Left Image */}
         <motion.img
           src={Image}
-          className="absolute top-1/2 left-0 -translate-y-1/2 w-[80%] sm:w-[60%] md:w-[40%]"
+          className="absolute top-70 left-0 -translate-y-1/2 w-[80%] sm:w-[60%] md:w-[40%]"
           initial={{ x: 0 }}
           whileHover={{ x: -50 }}
           transition={{ type: "spring", stiffness: 120, damping: 15 }}
@@ -44,12 +44,12 @@ export default function Hero() {
         />
 
         {/* Content */}
-        <div className="z-10 mt-40 md:mt-20 flex flex-col md:flex-row md:max-w-full gap-8 items-center md:items-start" data-aos="fade-in">
+        <div className="z-10 mt-10 md:mt-10 lg:mt-40 xl:mt-50 flex flex-col md:flex-row md:max-w-full gap-8 items-center md:items-start" data-aos="fade-in">
           
           {/* Main Title */}
           <div className="text-center md:text-left">
             
-            <h1 className="text-white text-[80px] sm:text-[120px] md:text-[200px] leading-none">
+            <h1 className="text-white text-[80px] sm:text-[120px] md:text-[200px] xl:text-[300px] leading-none">
               SELCORE
             </h1> 
             
