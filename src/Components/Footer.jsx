@@ -13,7 +13,7 @@ export default function Footer() {
           
 
           
-            <div className=" grid grid-cols-1 md:grid-cols-4 mt-20 gap-30 m-8">
+            <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-20 gap-30 m-8">
                 <div className="flex flex-col lg:flex-row gap-5">
                     <div>
                         <h1 className="text-[18px] md:flex md:flex-col text-gray-400">Menu</h1>

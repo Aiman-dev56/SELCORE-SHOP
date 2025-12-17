@@ -47,7 +47,7 @@ export default function Navbar() {
 
 
             {/* Desktop Links */}
-            <ul className="gap-5 text-lg text-white font-sans hidden md:flex">
+            <ul className="gap-5 text-lg text-white font-sans hidden lg:flex">
                 <Link to="/newin" className="hover:underline cursor-pointer">New In</Link>
                 <Link to="/cellphones" className="hover:underline cursor-pointer">Cell Phones</Link>
                 <Link to="/computer" className="hover:underline cursor-pointer">Computer & Tablets</Link>
@@ -67,7 +67,7 @@ export default function Navbar() {
                 <CartDrawer isOpen={drawerOpen} isClose={() => setDrawerOpen(false)} />
 
                 {/* Mobile Menu Button */}
-                <div className="md:hidden">
+                <div className="lg:hidden">
                     <FaBars
                         size={25}
                         className="cursor-pointer text-white"
@@ -78,7 +78,7 @@ export default function Navbar() {
             {/* Mobile Fullscreen Menu */}
             <div
                 className={`fixed inset-0 bg-black/90 flex flex-col items-center justify-center text-white
-                    transition-transform duration-300 md:hidden
+                    transition-transform duration-300 lg:hidden
                     ${openMenu ? "translate-x-0" : "translate-x-full"}
                 `}
             >
@@ -95,6 +95,7 @@ export default function Navbar() {
                 <Link to="/accessories" className="hover:underline cursor-pointer">Accessories</Link>
                 <Link to="/sale" className="hover:underline cursor-pointer">Sale</Link>
                 <Link to="/contact" className="hover:underline cursor-pointer">Contact</Link>
+                
                 </ul>
             </div>
         </div>

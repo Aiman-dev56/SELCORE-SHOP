@@ -47,30 +47,30 @@ export default function Products() {
 
     return (
         <div>
-            <div className="w-full h-[80vh] md:h-[60vh] p-6 grid  grid-cols-1 md:grid-cols-3 gap-4 " data-aos="fade-up">
+            <div className="w-full h-[80vh] md:h-70 lg:h-[60vh] p-6 grid  grid-cols-1 md:grid-cols-3 gap-4 " data-aos="fade-up">
 
                 {/* LEFT SMALL BOX - 1 column */}
-                <div className="col-span-1 bg-purple-300/20 rounded">
+                <div className="col-span-1 h-[70vh] md:h-[80vh] lg:h-[70vh] bg-purple-300/20 rounded">
                     <div className=" text-white font-serif rounded-md w-full flex flex-col p-5">
-                        <h1 className="text-2xl md:text-4xl">Top Deals</h1>
+                        <h1 className="text-4xl md:text-3xl lg:text-4xl">Top Deals</h1>
                         <h6 className="text-[18px] md:text-2xl mt-8">UP TO</h6>
-                        <h3 className="text-[30px] md:text-6xl font-semibold">30% OFF</h3>
+                        <h3 className="text-[30px] md:text-3xl lg:text-5xl font-semibold">30% OFF</h3>
                         <h5 className="text-[10px] md:text-[15px] mt-2">SELECTED BREANDS</h5>
-                        <a href="#" className="hover:underline mt-14"> Shop Now</a>
+                        <a href="#" className="hover:underline mt-5"> Shop Now</a>
 
                     </div>
                 </div>
 
                 {/* RIGHT BIG BOX - 2 columns */}
-                <div className="col-span-2 h-[40vh] md:h-[60vh] relative flex justify-between  bg-pink-300/10  overflow-hidden" >
+                <div className="col-span-2 h-[70vh] md:h-[80vh] lg:h-[70vh] relative flex justify-between  bg-pink-300/10  overflow-hidden" >
 
                     {/* LEFT SIDE TEXT */}
                     <div className="flex flex-col p-5 z-10">
-                        <h2 className=" font-semibold text-2xl md:text-4xl">
+                        <h2 className=" font-semibold text-4xl md:text-4xl">
                             Our Staff Pick
                         </h2>
 
-                        <h6 className=" text-[10px] md:text-[18px] mt-25 md:mt-42">
+                        <h6 className=" text-[10px] md:text-[18px] mt-25 md:mt-38 lg:mt-42">
                             Tune into quality sound
                         </h6>
                         <a href="#" className="hover:underline mt-2 md:text-2xl"> Shop Now</a>
@@ -80,16 +80,16 @@ export default function Products() {
                     <img
                         src={Image}
                         alt="speaker"
-                        className="h-[250px] md:h-[400px] object-contain absolute top-0 left-8 md:left-20 bottom-0"
+                        className="h-[300px] md:h-[400px] object-contain absolute top-15 lg:top-0 left-20 md:left-20 bottom-0"
                     />
 
                 </div>
             </div>
-            <hr className='border-white mt-30 m-5' />
+            <hr className='border-white mt-80 m-5 md:mt-50' />
 
-            <section className='mt-10 m-10 text-2xl' data-aos="fade-up" data-aos-duration="4000">
+            <section className='mt-10 m-5 text-2xl' data-aos="fade-up" data-aos-duration="4000">
                 <div className='flex flex-wrap justify-between '>
-                    <h1 className='text-4xl'>Best Sellers</h1>
+                    <h1 className='lg:text-4xl text-3xl md:text-2xl '>Best Sellers</h1>
                     <button className='bg-purple-400 px-20 md:mt-0 mt-2 rounded-lg text-sm cursor-pointer' onClick={handleToggle}>{showAll ? "Hide" : "View All"}</button>
 
                 </div>
