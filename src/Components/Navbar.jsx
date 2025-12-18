@@ -20,6 +20,18 @@ export default function Navbar() {
     };
 
     useEffect(() => {
+        if (openMenu) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, [openMenu]);
+
+    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 5) {
                 setNavbarVisible(true);
@@ -77,7 +89,7 @@ export default function Navbar() {
             </div>
             {/* Mobile Fullscreen Menu */}
             <div
-                className={`fixed inset-0 bg-black/90 flex flex-col items-center justify-center text-white
+                className={`fixed inset-0 bg-black/90 flex flex-col z-50 items-center justify-center text-white
                     transition-transform duration-300 lg:hidden
                     ${openMenu ? "translate-x-0" : "translate-x-full"}
                 `}
@@ -89,13 +101,13 @@ export default function Navbar() {
                 />
 
                 <ul className="text-center flex flex-col space-y-6 text-2xl font-semibold">
-                    <Link to="/newin" className="hover:underline cursor-pointer">New In</Link>
-                <Link to="/cellphones" className="hover:underline cursor-pointer">Cell Phones</Link>
-                <Link to="/computer" className="hover:underline cursor-pointer">Computer & Tablets</Link>
-                <Link to="/accessories" className="hover:underline cursor-pointer">Accessories</Link>
-                <Link to="/sale" className="hover:underline cursor-pointer">Sale</Link>
-                <Link to="/contact" className="hover:underline cursor-pointer">Contact</Link>
-                
+                    <Link to="/newin" className="hover:underline cursor-pointer" onClick={() => setOpenMenu(false)}>New In</Link>
+                    <Link to="/cellphones" className="hover:underline cursor-pointer" onClick={() => setOpenMenu(false)}>Cell Phones</Link>
+                    <Link to="/computer" className="hover:underline cursor-pointer" onClick={() => setOpenMenu(false)}>Computer & Tablets</Link>
+                    <Link to="/accessories" className="hover:underline cursor-pointer" onClick={() => setOpenMenu(false)}>Accessories</Link>
+                    <Link to="/sale" className="hover:underline cursor-pointer" onClick={() => setOpenMenu(false)}>Sale</Link>
+                    <Link to="/contact" className="hover:underline cursor-pointer" onClick={() => setOpenMenu(false)}>Contact</Link>
+
                 </ul>
             </div>
         </div>
