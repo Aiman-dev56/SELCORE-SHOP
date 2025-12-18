@@ -47,45 +47,67 @@ export default function Products() {
 
     return (
         <div>
-            <div className="w-full h-[80vh] md:h-70 lg:h-[60vh] p-6 grid  grid-cols-1 md:grid-cols-3 gap-4 " data-aos="fade-up">
+            <div
+  className="w-full p-6 grid grid-cols-1 md:grid-cols-3 gap-4"
+  data-aos="fade-up"
+>
+  {/* LEFT SMALL BOX */}
+  <div className="bg-purple-300/20 rounded flex flex-col justify-between p-6 min-h-[350px] md:min-h-[350px] lg:min-h-[500px]">
+    <div className="text-white font-serif">
+      <h1 className="text-3xl lg:text-4xl">Top Deals</h1>
 
-                {/* LEFT SMALL BOX - 1 column */}
-                <div className="col-span-1 h-[70vh] md:h-[80vh] lg:h-[70vh] bg-purple-300/20 rounded">
-                    <div className=" text-white font-serif  rounded-md w-full flex flex-col p-5">
-                        <h1 className="text-4xl md:text-3xl  lg:text-4xl">Top Deals</h1>
-                        <h6 className="text-[18px] md:text-2xl lg:mt-10 mt-8">UP TO</h6>
-                        <h3 className="text-[30px] md:text-3xl lg:text-6xl  font-semibold">30% OFF</h3>
-                        <h5 className="text-[10px] md:text-[15px] lg:text-2xl lg:mt-4 mt-2">SELECTED BREANDS</h5>
-                        <a href="#" className="hover:underline mt-5 lg:mt-30"> Shop Now</a>
+      <h6 className="text-lg mt-6">UP TO</h6>
 
-                    </div>
-                </div>
+      <h3 className="text-4xl lg:text-6xl font-semibold">30% OFF</h3>
 
-                {/* RIGHT BIG BOX - 2 columns */}
-                <div className="col-span-2 h-[70vh] md:h-[80vh] lg:h-[70vh] relative flex justify-between  bg-pink-300/10  overflow-hidden" >
+      <h5 className="text-sm lg:text-xl mt-3">
+        SELECTED BRANDS
+      </h5>
+    </div>
 
-                    {/* LEFT SIDE TEXT */}
-                    <div className="flex flex-col p-5 z-10">
-                        <h2 className=" font-semibold text-4xl md:text-4xl lg:text-5xl">
-                            Our Staff Pick
-                        </h2>
+    <a href="#" className="hover:underline text-white mt-6">
+      Shop Now
+    </a>
+  </div>
 
-                        <h6 className=" text-[10px] md:text-[18px] mt-25 md:mt-38 lg:mt-62">
-                            Tune into quality sound
-                        </h6>
-                        <a href="#" className="hover:underline mt-2  md:text-2xl"> Shop Now</a>
-                    </div>
+  {/* RIGHT BIG BOX */}
+  <div className="relative bg-pink-300/10 rounded flex  p-8 min-h-[350px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden col-span-2">
+    
+    {/* TEXT */}
+    <div className="z-10 text-white max-w-[80%]">
+      <h2 className="font-semibold text-3xl lg:text-6xl">
+        Our Staff Pick
+      </h2>
 
-                    {/* RIGHT SIDE IMAGE */}
-                    <img
-                        src={Image}
-                        alt="speaker"
-                        className="h-[300px] md:h-[400px] object-contain absolute top-15 lg:top-10 left-20 md:left-20 bottom-0"
-                    />
+      <p className="text-sm md:text-lg mt-50 lg:mt-80">
+        Tune into quality sound
+      </p>
 
-                </div>
-            </div>
-            <hr className='border-white mt-80 m-5 md:mt-50' />
+      <a href="#" className="hover:underline mt-4 inline-block text-lg">
+        Shop Now
+      </a>
+    </div>
+
+    {/* IMAGE (BOTTOM-RIGHT ATTACHED) */}
+    <img
+      src={Image}
+      alt="speaker"
+      className="
+        absolute bottom-0 right-0
+        w-[70%]
+        sm:w-[55%]
+        md:w-[45%]
+        lg:w-[40%]
+        xl:w-[35%] 
+        2xl:w-[30%]
+        object-contain
+        pointer-events-none
+      "
+    />
+  </div>
+</div>
+
+            <hr className='border-white mt-30 m-5 md:mt-50' />
 
             <section className='mt-10 m-5 text-2xl' data-aos="fade-up" data-aos-duration="4000">
                 <div className='flex flex-wrap justify-between '>
@@ -102,10 +124,8 @@ export default function Products() {
                                         <img
                                             src={product.thumbnail || product.image || product.images?.[0]}
                                             alt={product.title || product.name}
-                                            className="w-full h-full object-cover  transition-transform duration-500 
-                    hover:scale-110"
-
-                                        />
+                                            className="w-full h-full object-cover  transition-transform duration-500 hover:scale-110"
+                                            />
 
 
                                     </div>

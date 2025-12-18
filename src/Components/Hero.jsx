@@ -5,11 +5,6 @@ import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-
-
-
-
-
 export default function HeroSection() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);

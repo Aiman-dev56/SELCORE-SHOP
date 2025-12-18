@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 export default function Footer() {
     return(
         <div className="p-5 mt-10 mb-5 ">
-           <div className="  flex just gap-3 md:items-end md:justify-end mt-20 m-10 md:5">
+           <div className="  flex just gap-3 md:items-end md:justify-end mt-20 ml-0  lg:m-10 md:5">
                 <h1 className="text-lg">Reach Us At </h1>
                 <FaWhatsapp size={30}  className="md:mt-2"/>
 
             </div>
-            <hr mt-5 />
+            <hr className="mt-5" />
           
 
           
-            <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-20 gap-30 m-8">
+            <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:mt-20 mt-10 lg:gap-30 gap-10 md:gap-20 lg:m-8 ">
                 <div className="flex flex-col lg:flex-row gap-5">
                     <div>
                         <h1 className="text-[18px] md:flex md:flex-col text-gray-400">Menu</h1>
@@ -81,7 +81,7 @@ export default function Footer() {
                         
                       </ul> 
                         </div>
-                        <div className="flex  lg:flex-row gap-3 lg:ml-30">
+                        <div className="flex  lg:flex-row gap-3  lg:ml-30">
                             <FaFacebook size={30} className="cursor-pointer" />
                             <FaTiktok size={30} className="cursor-pointer" />
                             <FaTwitter size={30} className="cursor-pointer" />

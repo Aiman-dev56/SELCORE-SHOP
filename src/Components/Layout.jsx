@@ -3,6 +3,7 @@ import { useState } from "react";
 import ProductData from "../data.json";
 import { Link } from "react-router-dom";
 import { FaLessThan } from "react-icons/fa";
+import Footer from "../Components/Footer"
 
 export default function ProductsLayout({ categoryName, pageTitle }) {
 
@@ -25,7 +26,8 @@ export default function ProductsLayout({ categoryName, pageTitle }) {
     }
 
     return (
-        <div className="font-sans mt-24 grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5 px-6">
+        <div>
+            <div className="font-sans mt-24 grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5 px-6">
 
             {/* Left Sidebar */}
             <div className="hidden lg:flex flex-col gap-6">
@@ -94,5 +96,9 @@ export default function ProductsLayout({ categoryName, pageTitle }) {
                 ))}
             </div>
         </div>
+
+        <Footer />
+        </div>
+        
     );
 }
