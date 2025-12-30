@@ -105,24 +105,30 @@ export default function HeroSection() {
             </h1>
 
             {/* Subheading & CTA */}
-            <div className="gap-20 font-sans flex justify-between">
+            <div className="gap-20 font-sans ">
               <p className="
                 text-white/90 
                 text-sm sm:text-base md:text-lg 
                 max-w-md mx-auto lg:mx-0
                 leading-relaxed 
               ">
-                Your Ultimate Destination for the Best Value Electronics and Gadgets
+                Your Ultimate Destination for the Best Value 
               </p>
-              <Link to="/allproducts" >
+              
+               
+                <div className="flex justify-between ">
+                   <p className="text-lg">Electronics and Gadgets</p>
+                 <Link to="/allproducts" >
                 <button className="
                 text-white underline underline-offset-4
                 hover:text-purple-300 transition-colors
-                text-sm sm:text-base font-medium cursor-pointer
+                text-lg sm:text-base font-medium cursor-pointer
               ">
                   Shop now →
                 </button>
               </Link>
+              </div>
+             
 
             </div>
           </div>
