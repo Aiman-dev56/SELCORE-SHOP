@@ -4,11 +4,14 @@ import Image2 from "/public/images/earpods2.png";
 import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+
 
 export default function HeroSection() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
-   const [isChecked, setIsChecked] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     Aos.init({
@@ -17,9 +20,18 @@ export default function HeroSection() {
     });
   }, []);
 
-  const handleChange = (e) => {
-    setIsChecked(e.target.checked);
-  };
+
+
+  const validateEmail = (value) => {
+    const emailRegix = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsEmailValid(emailRegix.test(value));
+  }
+
+  const emailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    validateEmail(value);
+  }
 
   const handleSubmit = () => {
     if (email && subscribed) {
@@ -46,12 +58,12 @@ export default function HeroSection() {
             2xl:w-[25%] 2xl:max-w-[500px]
             object-contain
           "
-          whileHover={{ x: -40 }}
+          whileHover={{ y: -40 }}
           transition={{ type: "spring", stiffness: 120, damping: 15 }}
         />
 
         {/* RIGHT IMAGE - Responsive positioning */}
-        
+
         <motion.img
           src={Image2}
           alt="Right decoration"
@@ -63,7 +75,7 @@ export default function HeroSection() {
             2xl:w-[25%] 2xl:max-w-[500px]
             object-contain
           "
-          whileHover={{ x: 40 }}
+          whileHover={{ y: 40,  }}
           transition={{ type: "spring", stiffness: 120, damping: 15 }}
         />
 
@@ -78,14 +90,14 @@ export default function HeroSection() {
         " data-aos="fade-in">
 
           {/* TEXT CONTENT */}
-          <div className="text-center lg:text-left space-y-6">
+          <div className="text-center lg:text-left w-160">
             {/* Responsive Heading */}
             <h1 className="
               leading-[0.85] font-bold tracking-tight
               text-5xl
               sm:text-6xl
               md:text-7xl
-              lg:text-8xl
+              lg:text-9xl
               xl:text-9xl
               2xl:text-[180px]
             ">
@@ -93,23 +105,25 @@ export default function HeroSection() {
             </h1>
 
             {/* Subheading & CTA */}
-            <div className="space-y-4">
+            <div className="gap-20 font-sans flex justify-between">
               <p className="
                 text-white/90 
                 text-sm sm:text-base md:text-lg 
-                max-w-xl mx-auto lg:mx-0
-                leading-relaxed
+                max-w-md mx-auto lg:mx-0
+                leading-relaxed 
               ">
                 Your Ultimate Destination for the Best Value Electronics and Gadgets
               </p>
-              
-              <button className="
+              <Link to="/allproducts" >
+                <button className="
                 text-white underline underline-offset-4
                 hover:text-purple-300 transition-colors
-                text-sm sm:text-base font-medium
+                text-sm sm:text-base font-medium cursor-pointer
               ">
-                Shop now →
-              </button>
+                  Shop now →
+                </button>
+              </Link>
+
             </div>
           </div>
 
@@ -136,8 +150,9 @@ export default function HeroSection() {
                   type="email"
                   placeholder="your@email.com"
                   value={email}
-                  onClick={(e) => isChecked(handleChange)}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setError(true)}
+                  onChange={emailChange}
+                  required
                   className="
                     w-full bg-transparent 
                     border-b-2 border-white/50 
@@ -147,12 +162,17 @@ export default function HeroSection() {
                     focus:border-white transition-colors
                   "
                 />
+                {error && email && !isEmailValid && (
+                  <p className="mt-1 text-red-800">
+                    Enter an email address like: example@gmail.com
+                  </p>
+                )}
               </div>
 
               {/* Checkbox */}
               <label className="flex items-start gap-3 text-white/90 text-sm cursor-pointer">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   checked={subscribed}
                   onChange={(e) => setSubscribed(e.target.checked)}
                   className="mt-0.5 w-4 h-4 accent-purple-500"
@@ -161,7 +181,7 @@ export default function HeroSection() {
               </label>
 
               {/* Submit Button */}
-              <button 
+              <button
                 onClick={handleSubmit}
                 className="
                   w-full sm:w-auto
@@ -173,7 +193,7 @@ export default function HeroSection() {
                   shadow-lg hover:shadow-xl
                   disabled:opacity-50 disabled:cursor-not-allowed
                 "
-                disabled={!email || !subscribed}
+                disabled={!isEmailValid || !subscribed}
               >
                 Submit
               </button>

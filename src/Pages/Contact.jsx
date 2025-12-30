@@ -1,189 +1,292 @@
 import { useState } from "react"
-import { FaSearch,  FaTwitter, FaLinkedinIn, FaFacebook, FaCopy } from "react-icons/fa";
+import { FaSearch, FaTwitter, FaLinkedinIn, FaFacebook, FaCopy } from "react-icons/fa";
 import Footer from "../Components/Footer"
 
 export default function Contact() {
- const [activeSection, setIsActiveSection] = useState("general");
+  const [activeSection, setIsActiveSection] = useState("general");
+  const [openQuestion, setOpenQuestion] = useState(null);
+  const [search, setIsSearch] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
 
- const [openQuestion, setOpenQuestion] = useState(null);
+  const [errors, setErrors] = useState({});
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
- const generalQuestion =  [
-    {
-        id:1 ,
-        question: "what is an FAQ section?",
-        answer: "An FAQ section can be used to quickly answer common questions about your business like Where do you ship to?, What are your opening hours?, or How can I book a service?. "
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    setErrors({
+      ...errors,
+      [name]: "",
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let newErrors = {};
+
+    if (!formData.firstName.trim()) newErrors.firstName = "First Name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
     }
- ];
 
- const faqQuestions = [
+    // ✅ FIX: Proper alert and reset BEFORE any return
+    console.log("Form Submitted:", formData);
+    alert("Form Submitted Successfully!");
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+
+    setErrors({});
+  }
+
+  const generalQuestion = [
     {
-        id:2,
-        question :"Can I insert an Image, video, or GIF in my FAQ?",
-        answer : "Yes. To add media follow these steps: 1. Manage FAQs from your site dashboard or in the Editor. 2. Create a new FAQ or edit an existing one .3. From the answer text box click on the video, image or GIF icon. 4. Add media from your library and save."
+      id: 1,
+      question: "What is an FAQ section?",
+      answer: "An FAQ section can be used to quickly answer common questions about your business like Where do you ship to?, What are your opening hours?, or How can I book a service?."
+    }
+  ];
+
+  const faqQuestions = [
+    {
+      id: 2,
+      question: "Can I insert an Image, video, or GIF in my FAQ?",
+      answer: "Yes. To add media follow these steps: 1. Manage FAQs from your site dashboard or in the Editor. 2. Create a new FAQ or edit an existing one. 3. From the answer text box click on the video, image or GIF icon. 4. Add media from your library and save."
     },
     {
-        id: 3,
-        question: "How do I edit or remove the 'Frequently Asked Questions' title?",
-        answer : "You can edit the title from the FAQ 'Settings' tab in the Editor. To remove the title from your mobile app go to the 'Site & App' tab in your Owner's app and customize."
+      id: 3,
+      question: "How do I edit or remove the 'Frequently Asked Questions' title?",
+      answer: "You can edit the title from the FAQ 'Settings' tab in the Editor. To remove the title from your mobile app go to the 'Site & App' tab in your Owner's app and customize."
     }
- ];
+  ];
 
- const questions = activeSection === "general" ? generalQuestion : faqQuestions;
+  const questions = activeSection === "general" ? generalQuestion : faqQuestions;
 
-    return (
-        <div className="lg:mt-50 mt-20">
-            <div className="grid grid-cols-1 lg:grid-cols-[500px_1fr] gap-10">
-                <div className="border-t m-10 ">
-                    <h1 className="font-semibold text-4xl mt-5">Contact Selcore</h1>
-                    <ul className="mt-8 w-50 font-sans ">
-                        <li className="mb-3">Call us: 123-456-789</li>
-                        <li className="mb-3">Email us: info@mysite.com</li>
-                        <li className="mb-3">500 Terry Francine Street,
-                            San Francisco, CA 94158</li>
-                    </ul>
+  // ✅ FIX: Changed 'serach' to 'search'
+  const filteredQuestions = search ? [...generalQuestion, ...faqQuestions].filter(
+    (q) =>
+      q.question.toLowerCase().includes(search.toLowerCase()) ||
+      q.answer.toLowerCase().includes(search.toLowerCase())
+  ) : questions;
 
-                </div>
-                <div className="border-t m-10">
-                    <h1 className="font-semibold text-4xl mt-5">Got a question?</h1>
-                    <p className="font-sans mt-8">We're here to help! Please fill out the form with any questions or concerns, and we will get back to you as soon as possible.</p>
-                    <form className="mt-10 m-5">
-                        <div className="flex gap-10">
+  const isSearching = search.trim() !== "";
 
-                            <label className="flex flex-col font-sans mb-2">
-                                First Name
-                                <input type="text" placeholder="" className="border h-10 p-1 w-70 mt-2" />
-                            </label>
-
-
-                            <label className="flex flex-col font-sans mb-2">
-                                Last Name
-                                <input type="text" placeholder="" className="border p-1 w-70 mt-2 h-10" />
-                            </label>
-
-
-                        </div>
-                        <label className="flex flex-col font-sans mt-2">
-                            Email
-                            <input type="email" placeholder="" className="border bg-transparent p-1 w-full mt-2 h-10" />
-                        </label>
-                        <label className="flex flex-col font-sans  mt-2">
-                            Subject
-                            <input type="text" placeholder="" className="border bg-transparent p-1 w-full mt-2 h-10" />
-                        </label>
-                        <label className="flex flex-col font-sans mt-2">
-                            Message
-                            <textarea type="text" placeholder="" className="border p-1 bg-transparent w-full mt-2 h-30" />
-                        </label>
-
-                        <button className="px-18 rounded-lg py-2 text-black text-[15px] mt-5 bg-purple-500 hover:bg-purple-400 cursor-pointer">Submit</button>
-
-                    </form>
-
-
-
-                </div>
-
-            </div>
-
-            <div className="flex flex-col m-10 bg-purple-300/15 h-auto rounded-lg p-6">
-                <div className="flex justify-between">
-                    <h1 className="text-3xl">Frequently asked questions</h1>
-                    <div className="fle flex-col">
-                        <div className="inline-flex gap-3 border-b border-white">
-                        <input placeholder="Looking For Something" className="text-[20px] text-white p-2 border-0 outline-none focus:outline-none focus:ring-0 hover:border-0 focus:border-0" />
-                        <FaSearch size={20} className="lg:mt-2" />
-                        
-                    </div>
-
-                    </div>
-                    
-
-
-                </div>
-
-                <div className="mt-15 font-sans">
-  {/* Tabs container */}
-  <div className="relative flex gap-8 w-fit">
-    <button
-      onClick={() => {setIsActiveSection("general"); setOpenQuestion(null);}}
-      className={`text-[18px] cursor-pointer mb-5 ${
-        activeSection === "general" ? "text-white" : "text-white"
-      }`}
-    >
-      General
-    </button>
-
-    <button
-      onClick={() => {setIsActiveSection("faq"); setOpenQuestion(null)}}
-      className={`text-[18px] cursor-pointer mb-5 ${
-        activeSection === "faq" ? "text-white" : "text-white"
-      }`}
-    >
-      Setting Up FAQs
-    </button>
-
-    {/* Sliding underline */}
-    <span
-      className={`
-        absolute
-        -bottom-1
-        left-0
+  return (
+    <div className="lg:mt-32 mt-20 min-h-screen">
+      {/* Contact Form Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 px-4 sm:px-6 lg:px-10">
         
-        h-1
-        bg-white
-        transition-all
-        duration-300
-        ease-in-out
-        ${
-          activeSection === "general"
-            ? "translate-x-0 w-[60px]"
-            : "translate-x-[90px] w-[140px]"
-        }
-      `}
-    />
-  </div>
- {/* Questions */}
-      <div className="mt-6 space-y-4">
-        {questions.map((item) => (
-          <div
-            key={item.id}
-            className="border border-gray-300 pb-3 cursor-pointer"
-            onClick={() =>
-              setOpenQuestion(openQuestion === item.id ? null : item.id)
-            }
-          >
-            <h3 className="text-lg font-medium m-4 flex justify-between">
-              {item.question}
-              <span>{openQuestion === item.id ? "−" : "+"}</span>
-            </h3>
-
-            {openQuestion === item.id && (
-              <p className="m-4 text-gray-300 transition-all text-[18px] w-200">
-                {item.answer}
-                <div className="flex gap-8 mt-10">
-                <FaFacebook size={30} />
-                <FaLinkedinIn size={30} />
-                <FaCopy size={30} />
-                <FaTwitter size={30} />
-
-            </div>
-              </p>
-              
-            )}
-            
-
-          </div>
-        ))}
-    
-    
-
-  </div>
-</div>
-
-
-            </div>
-            <Footer />
+        {/* Contact Info */}
+        <div className="border-t border-white/30 pt-6">
+          <h1 className="font-semibold text-3xl sm:text-4xl mb-6">Contact Selcore</h1>
+          <ul className="space-y-3 font-sans text-base sm:text-lg">
+            <li>Call us: 123-456-789</li>
+            <li>Email us: info@mysite.com</li>
+            <li>500 Terry Francine Street,<br />San Francisco, CA 94158</li>
+          </ul>
         </div>
-    )
+
+        {/* Contact Form */}
+        <div className="border-t font-sans border-white/30 pt-6">
+          <h1 className="font-semibold text-3xl sm:text-4xl mb-6">Got a question?</h1>
+          <p className="mb-8 text-gray-300">
+            We're here to help! Please fill out the form with any questions or concerns, and we will get back to you as soon as possible.
+          </p>
+
+          <div onSubmit={handleSubmit} className="space-y-4">
+            {/* ✅ FIX: Added responsive flex layout */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <label className="flex flex-col flex-1">
+                <span className="mb-2">First Name</span>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="border border-white/30 bg-transparent rounded px-3 py-2 outline-none focus:border-purple-500 transition-colors"
+                />
+                {errors.firstName && (
+                  <span className="text-red-400 text-sm mt-1">{errors.firstName}</span>
+                )}
+              </label>
+
+              <label className="flex flex-col flex-1">
+                <span className="mb-2">Last Name</span>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="border border-white/30 bg-transparent rounded px-3 py-2 outline-none focus:border-purple-500 transition-colors"
+                />
+                {errors.lastName && (
+                  <span className="text-red-400 text-sm mt-1">{errors.lastName}</span>
+                )}
+              </label>
+            </div>
+
+            <label className="flex flex-col">
+              <span className="mb-2">Email</span>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="border border-white/30 bg-transparent rounded px-3 py-2 outline-none focus:border-purple-500 transition-colors"
+              />
+              {errors.email && (
+                <span className="text-red-400 text-sm mt-1">{errors.email}</span>
+              )}
+            </label>
+
+            <label className="flex flex-col">
+              <span className="mb-2">Subject</span>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="border border-white/30 bg-transparent rounded px-3 py-2 outline-none focus:border-purple-500 transition-colors"
+              />
+              {errors.subject && (
+                <span className="text-red-400 text-sm mt-1">{errors.subject}</span>
+              )}
+            </label>
+
+            <label className="flex flex-col">
+              <span className="mb-2">Message</span>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="5"
+                className="border border-white/30 bg-transparent rounded px-3 py-2 outline-none focus:border-purple-500 transition-colors resize-none"
+              />
+              {errors.message && (
+                <span className="text-red-400 text-sm mt-1">{errors.message}</span>
+              )}
+            </label>
+
+            <button
+              onClick={handleSubmit}
+              className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mt-16 mx-4 sm:mx-6  lg:mx-10 bg-purple-300/10 rounded-xl p-6 sm:p-8 lg:p-10 border border-white/20">
+        
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
+          <h1 className="text-2xl sm:text-3xl font-semibold">Frequently Asked Questions</h1>
+          
+          {/* Search */}
+          <div className="flex items-center gap-3 border-b border-white pb-2 max-w-md">
+            <input
+              placeholder="Looking for something?"
+              className="flex-1 bg-transparent text-white outline-none text-sm sm:text-base"
+              value={search}
+              onChange={(e) => setIsSearch(e.target.value)}
+            />
+            <FaSearch size={18} className="text-white/70" />
+          </div>
+        </div>
+
+        {/* Tabs */}
+        {!isSearching && (
+          <div className="relative font-sans flex gap-8 mb-8 border-b border-white/20">
+            <button
+              onClick={() => { setIsActiveSection("general"); setOpenQuestion(null); }}
+              className={`pb-3 text-base sm:text-lg transition-colors ${
+                activeSection === "general" ? "text-white" : "text-white/60"
+              }`}
+            >
+              General
+            </button>
+
+            <button
+              onClick={() => { setIsActiveSection("faq"); setOpenQuestion(null) }}
+              className={`pb-3 text-base sm:text-lg transition-colors ${
+                activeSection === "faq" ? "text-white" : "text-white/60"
+              }`}
+            >
+              Setting Up FAQs
+            </button>
+
+            {/* Animated underline */}
+            <span
+              className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
+                activeSection === "general"
+                  ? "translate-x-0 w-[70px]"
+                  : "translate-x-[106px] w-[150px]"
+              }`}
+            />
+          </div>
+        )}
+
+        {/* Questions */}
+        <div className="space-y-4 font-sans">
+          {filteredQuestions.length > 0 ? (
+            filteredQuestions.map((item) => (
+              <div
+                key={item.id}
+                className="border border-white/20 rounded-lg overflow-hidden cursor-pointer hover:border-white/40 transition-colors"
+                onClick={() => setOpenQuestion(openQuestion === item.id ? null : item.id)}
+              >
+                <h3 className="text-base sm:text-lg font-medium p-4 flex justify-between items-center">
+                  <span>{item.question}</span>
+                  <span className="text-2xl">{openQuestion === item.id ? "−" : "+"}</span>
+                </h3>
+                
+                {openQuestion === item.id && (
+                  <div className="px-4 pb-4 pt-0">
+                    <p className="text-gray-300 text-sm sm:text-base mb-6">
+                      {item.answer}
+                    </p>
+                    <div className="flex gap-4 sm:gap-6">
+                      <FaFacebook size={24} className="cursor-pointer hover:text-purple-400 transition-colors" />
+                      <FaLinkedinIn size={24} className="cursor-pointer hover:text-purple-400 transition-colors" />
+                      <FaCopy size={24} className="cursor-pointer hover:text-purple-400 transition-colors" />
+                      <FaTwitter size={24} className="cursor-pointer hover:text-purple-400 transition-colors" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <p className="text-red-400 text-center py-8 text-lg">
+              No FAQ found matching your search.
+            </p>
+          )}
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
 }

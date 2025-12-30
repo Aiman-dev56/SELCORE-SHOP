@@ -41,9 +41,9 @@ export default function ProductDetail() {
     <div>
        <div className="mt-20 p-6 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10">
       <img
-        src={product.thumbnail || product.image || product.images?.[0]}
+        src={product.thumbnail || product.image || product.images?.[0] }
         alt={product.title || product.name}
-        className="w-200 h-100 object-cover bg-gray-300 rounded-md"
+        className="w-200 h-100 lg:h-180  bg-gray-300 rounded-md"
       />
       <div>
         <h1 className="text-2xl font-semibold">{product.title || product.name}</h1>

@@ -3,12 +3,13 @@ import { useCart } from "../Context/CartContext";
 
 export default function CartDrawer({isOpen, isClose}) {
     const {cart, removeFromCart, updateQuantity, totalPrice} = useCart();
+    const totalItems =  cart.reduce((sum, item) => sum + item.qty, 0)
 
     return(
         <div className={`fixed top-0 right-0 w-[350px] h-full bg-gray-600 shadow-lg z-50 transform-transition duration-300
         ${isOpen ? "translate-x-0" : "translate-x-full"} `}>
             <div className="flex justify-between items-center p-4 border-b">
-                <h1>Your Cart</h1>
+                <h1>Your Cart {totalItems}</h1>
                 <FaTimes className="cursor-pointer" onClick={isClose} />
             </div>
 

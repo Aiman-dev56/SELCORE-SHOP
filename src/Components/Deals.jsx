@@ -11,49 +11,55 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Deals() {
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState('');
+    const [subscribed, setSubscribed] = useState(false);
+    const [isEmailValid, setIsEmailValid] = useState(false);
     const [error, setError] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
-
-    const handleEmail = (e) => {
-        const value = e.target.value;
-        setEmail(value);
-        if (value.trim() !== "") setError(false);
-    };
-
-    const handleLeave = () => {
-        if (email.trim() === "") {
-            setError(true);
-        }
-    };
-
-    const handleCheck = (e) => {
-        setIsChecked(e.target.checked);
-    };
 
     useEffect(() => {
         Aos.init({
-            duration: 1500,
-            once: true
+            duration: 4000,
+            once: true,
         });
     }, []);
 
+
+
+    const validateEmail = (value) => {
+        const emailRegix = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        setIsEmailValid(emailRegix.test(value));
+    }
+
+    const emailChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+        validateEmail(value);
+    }
+
+    const handleSubmit = () => {
+        if (email && subscribed) {
+            alert('Thank you for subscribing!');
+            setEmail('');
+            setSubscribed(false);
+        }
+    };
+
     return (
         <div className="bg-gradient-to-r from-[#1f054e] to-[#0f0f0f] min-h-screen text-white justify-center items-center p-5">
-            
+
             {/* ========== HERO SECTION - HOTTEST DEALS ========== */}
             <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] flex justify-center items-center px-4 sm:px-6 lg:px-8">
-                
+
                 {/* Background Image */}
                 <div className="items-center">
                     <img
-                    src={Laptop}
-                    alt="Hottest Deals"
-                    className="absolute inset-0 w-full h-full object-cover rounded-lg"
-                    data-aos="fade-in"
-                />
+                        src={Laptop}
+                        alt="Hottest Deals"
+                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                        data-aos="fade-in"
+                    />
                 </div>
-                
+
 
                 {/* Overlay Text */}
                 <div className="absolute left-4 sm:left-8 md:left-12 lg:left-16 top-6 sm:top-10 md:top-16 lg:top-20 z-10 max-w-[90%] sm:max-w-md md:max-w-lg lg:max-w-xl">
@@ -76,7 +82,7 @@ export default function Deals() {
 
             {/* ========== SHOP BY CATEGORY SECTION ========== */}
             <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                
+
                 {/* Section Header */}
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12">
                     <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -91,14 +97,14 @@ export default function Deals() {
 
                 {/* Category Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                    
+
                     {/* Computer & Tablets */}
                     <div className="group">
                         <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-800">
-                            <img 
-                                src={Tablet} 
-                                alt="Tablets" 
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                            <img
+                                src={Tablet}
+                                alt="Tablets"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                         </div>
                         <Link to="/computer">
@@ -111,10 +117,10 @@ export default function Deals() {
                     {/* Cell Phones */}
                     <div className="group">
                         <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-800">
-                            <img 
-                                src={Mobiles} 
-                                alt="Cell Phones" 
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                            <img
+                                src={Mobiles}
+                                alt="Cell Phones"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                         </div>
                         <Link to="/cellphones">
@@ -127,10 +133,10 @@ export default function Deals() {
                     {/* Accessories */}
                     <div className="group">
                         <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-800">
-                            <img 
-                                src={watch} 
-                                alt="Accessories" 
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                            <img
+                                src={watch}
+                                alt="Accessories"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                         </div>
                         <Link to="/accessories">
@@ -151,9 +157,9 @@ export default function Deals() {
                     Brands
                 </h1>
                 <div className="w-full flex justify-center">
-                    <img 
-                        src={Logo} 
-                        alt="Brand Logos" 
+                    <img
+                        src={Logo}
+                        alt="Brand Logos"
                         className="max-w-full h-auto"
                     />
                 </div>
@@ -164,7 +170,7 @@ export default function Deals() {
 
             {/* ========== NEW ARRIVALS SECTION ========== */}
             <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                
+
                 {/* Section Header */}
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12">
                     <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -179,14 +185,14 @@ export default function Deals() {
 
                 {/* Product Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-                    
+
                     {/* Product 1 - Camera */}
                     <div className="group">
                         <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-800">
-                            <img 
-                                src={Camera} 
-                                alt="Instant Camera" 
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                            <img
+                                src={Camera}
+                                alt="Instant Camera"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute top-3 left-3">
                                 <span className="bg-[#2d0a5f] text-white text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg">
@@ -207,10 +213,10 @@ export default function Deals() {
                     {/* Product 2 - Headphones */}
                     <div className="group">
                         <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-800">
-                            <img 
-                                src={Headphones} 
-                                alt="Tonx Headphones" 
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                            <img
+                                src={Headphones}
+                                alt="Tonx Headphones"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                         </div>
                         <div className="mt-3 sm:mt-4">
@@ -228,9 +234,9 @@ export default function Deals() {
             {/* ========== NEWSLETTER SECTION ========== */}
             <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto my-16 sm:my-20 lg:my-24">
                 <div className="bg-purple-300/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 border border-white/20">
-                    
+
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                        
+
                         {/* Left - Text Content */}
                         <div className="space-y-3 sm:space-y-4">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -244,7 +250,7 @@ export default function Deals() {
                         {/* Right - Form */}
                         <div className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
                             <div className="space-y-5">
-                                
+
                                 {/* Email Input */}
                                 <div>
                                     <label className="block text-white text-base sm:text-lg md:text-xl mb-2">
@@ -255,12 +261,13 @@ export default function Deals() {
                                         placeholder="example@email.com"
                                         className="w-full bg-transparent border-b-2 border-white/50 focus:border-white py-2 px-1 text-white placeholder:text-white/40 outline-none transition-colors text-sm sm:text-base"
                                         value={email}
-                                        onChange={handleEmail}
-                                        onBlur={handleLeave}
+                                        onBlur={() => setError(true)}
+                                        onChange={emailChange}
+                                        required
                                     />
-                                    {error && (
-                                        <p className="text-red-400 text-xs sm:text-sm mt-2">
-                                            Please enter a valid email address like example@mysite.com
+                                    {error && email && !isEmailValid && (
+                                        <p className="mt-1 text-red-800">
+                                            Enter an email address like: example@gmail.com
                                         </p>
                                     )}
                                 </div>
@@ -269,8 +276,8 @@ export default function Deals() {
                                 <label className="flex items-start gap-3 text-white/90 text-sm sm:text-base cursor-pointer">
                                     <input
                                         type="checkbox"
-                                        checked={isChecked}
-                                        onChange={handleCheck}
+                                        checked={subscribed}
+                                        onChange={(e) => setSubscribed(e.target.checked)}
                                         className="mt-0.5 w-4 h-4 accent-purple-500"
                                     />
                                     <span>Yes, subscribe me to your newsletter.</span>
@@ -278,14 +285,8 @@ export default function Deals() {
 
                                 {/* Submit Button */}
                                 <button
-                                    onClick={() => {
-                                        if (email && isChecked) {
-                                            alert('Thank you for subscribing!');
-                                            setEmail('');
-                                            setIsChecked(false);
-                                        }
-                                    }}
-                                    disabled={!email || !isChecked}
+                                    onClick={handleSubmit}
+                                    disabled={!isEmailValid || !subscribed}
                                     className="w-full sm:w-auto bg-white hover:bg-gray-200 disabled:bg-gray-500 disabled:cursor-not-allowed text-black font-medium px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base transition-colors"
                                 >
                                     Submit

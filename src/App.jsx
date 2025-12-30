@@ -12,6 +12,7 @@ import Home from "./Components/Home";
 import ProductsDetails from "./Pages/ProductDetails";
 import Products from "./Components/Products";
 import Contact from "./Pages/Contact";
+import Checkout from "./Pages/Checkout"
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/products" element={<Products/>} />
         <Route path="/product/:id" element={<ProductsDetails/>} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );
